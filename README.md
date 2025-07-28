@@ -1,4 +1,4 @@
-**Whirlpop** is a fast, fun, and chaotic party game you can play with friends which perfect for hangouts, sleepovers, or group calls. Just add player names, pick a theme (like Truth or Dare, Chaos Mode, Deep Talk, and more), and spin the wheel to get a random prompt assigned to a random player.
+**Whirlpop** is a fast, fun, and chaotic game you can play with friends, which is perfect for hangouts, sleepovers, or group calls. Just add player names, pick a theme (like Truth or Dare, Chaos Mode, Deep Talk, and more), and spin the wheel to get a random prompt assigned to a random player.
 No need to come up with your own questions, whirlpop got themed packs ready to go! No log in / sign up required!
 
 🎯 How it works
