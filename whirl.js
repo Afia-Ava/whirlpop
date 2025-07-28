@@ -145,7 +145,6 @@ const svgWheel = document.getElementById('svgWheel');
 const btn = document.getElementById('whirlBtn');
 
 let spinning = false;
-// Track which players have already been picked this round
 let usedPlayerIndexes = [];
 let lastPlayerIndex = null;
 let lastPromptSkipped = false;
@@ -241,20 +240,16 @@ function setUsedPromptIndexes(arr, key = 'whirlpopTruthOrDareUsed') {
 }
 
 function pickRandomPlayer(players) {
-  // If all players have been picked, reset
   if (usedPlayerIndexes.length >= players.length) {
     usedPlayerIndexes = [];
   }
-  // Build available indexes
   let available = [];
   for (let i = 0; i < players.length; i++) {
     if (!usedPlayerIndexes.includes(i)) available.push(i);
   }
-  // If last prompt was skipped, allow the same player again
   if (lastPromptSkipped && lastPlayerIndex !== null && available.length > 0) {
     available.push(lastPlayerIndex);
   }
-  // Pick random
   let idx = available[Math.floor(Math.random() * available.length)];
   return idx;
 }
@@ -358,7 +353,6 @@ function markPlayerDone() {
 }
 
 function markPlayerSkipped() {
-  // Don't mark as done, allow repeat
   lastPromptSkipped = true;
 }
 
