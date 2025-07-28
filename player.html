@@ -19,11 +19,58 @@
             id="playerName"
             placeholder="Enter player name"
             autocomplete="off"
+            style="
+              font-family: 'Fredoka', 'Quicksand', 'Segoe UI', sans-serif;
+              font-size: 1.1rem;
+              color: #3a6eea;
+              border: 1.5px solid #e0c3fc;
+              border-radius: 1rem;
+              padding: 0.5rem 1rem;
+              width: 60%;
+              outline: none;
+            "
           />
-          <button type="submit" class="add-btn">Add</button>
+          <button
+            type="submit"
+            class="add-btn"
+            style="
+              font-family: 'Fredoka', 'Quicksand', 'Segoe UI', sans-serif;
+              font-size: 1.1rem;
+              color: #3a6eea;
+              background: #e0c3fc;
+              border: none;
+              border-radius: 1rem;
+              padding: 0.5rem 1.2rem;
+              font-weight: 600;
+              box-shadow: 0 2px 8px 0 #e0c3fc33;
+              transition: background 0.2s, color 0.2s;
+            "
+          >
+            Add
+          </button>
         </form>
         <ul id="playerList" class="player-list"></ul>
         <button id="startGameBtn" class="start-btn">Next</button>
+        <style>
+          .add-btn,
+          .start-btn {
+            font-family: 'Fredoka', 'Quicksand', 'Segoe UI', sans-serif;
+            font-size: 1.1rem;
+            color: #3a6eea;
+            background: #e0c3fc;
+            border: none;
+            border-radius: 1rem;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px 0 #e0c3fc33;
+            transition: background 0.2s, color 0.2s;
+          }
+          .add-btn:hover,
+          .start-btn:hover {
+            background: #fbeee6;
+            color: #2046a8;
+          }
+        </style>
       </div>
     </div>
     <script src="player.js"></script>

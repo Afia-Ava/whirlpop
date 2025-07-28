@@ -40,5 +40,7 @@ startGameBtn.addEventListener('click', function () {
     alert('Add at least one player to start the game!');
     return;
   }
-  alert('Players: ' + players.join(', '));
+  // Store players in localStorage and go to category page
+  localStorage.setItem('whirlpopPlayers', JSON.stringify(players));
+  window.location.href = 'category.html';
 });
