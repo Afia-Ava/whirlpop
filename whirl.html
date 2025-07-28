@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whirlpop Spin</title>
+    <link rel="stylesheet" href="whirl.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="whirl-bg">
+      <button class="back-btn" onclick="window.location.href='category.html'">
+        &#8592; Back
+      </button>
+      <div class="whirl-info-boxes">
+        <div class="info-box" id="playerCountBox">Players: 0</div>
+        <div class="info-box" id="themeBox">Theme: -</div>
+      </div>
+      <div class="whirl-container">
+        <h1 class="whirl-title">Whirl the Wheel</h1>
+        <div class="wheel-outer">
+          <div class="wheel-inner" id="whirlWheel">
+            <svg id="svgWheel" width="180" height="180" viewBox="0 0 180 180">
+              <g>
+                <circle
+                  cx="90"
+                  cy="90"
+                  r="85"
+                  fill="#e0c3fc"
+                  stroke="#3a6eea"
+                  stroke-width="6"
+                />
+                <g id="wheelSectors">
+                  <path
+                    d="M90,90 L90,10 A80,80 0 0,1 168.28,54.12 Z"
+                    fill="#fbeee6"
+                  />
+                  <path
+                    d="M90,90 L168.28,54.12 A80,80 0 0,1 146.57,158.28 Z"
+                    fill="#b3c6f7"
+                  />
+                  <path
+                    d="M90,90 L146.57,158.28 A80,80 0 0,1 33.43,158.28 Z"
+                    fill="#e6ecfa"
+                  />
+                  <path
+                    d="M90,90 L33.43,158.28 A80,80 0 0,1 11.72,54.12 Z"
+                    fill="#b3c6f7"
+                  />
+                  <path
+                    d="M90,90 L11.72,54.12 A80,80 0 0,1 90,10 Z"
+                    fill="#fbeee6"
+                  />
+                </g>
+                <circle cx="90" cy="90" r="18" fill="#3a6eea" />
+                <circle cx="90" cy="90" r="10" fill="#fff" />
+              </g>
+            </svg>
+          </div>
+          <button class="whirl-btn" id="whirlBtn">Spin</button>
+        </div>
+      </div>
+    </div>
+    <script src="whirl.js"></script>
+    <div id="popupOverlay" class="popup-overlay" style="display: none">
+      <div class="popup-box">
+        <div class="popup-player" id="popupPlayer">Player:</div>
+        <div class="popup-topic" id="popupTopic">Topic: ...</div>
+        <div class="popup-btn-row">
+          <button class="popup-btn skip-btn" id="skipBtn">Skip</button>
+          <button class="popup-btn done-btn" id="doneBtn">Done</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
