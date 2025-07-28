@@ -145,6 +145,10 @@ const svgWheel = document.getElementById('svgWheel');
 const btn = document.getElementById('whirlBtn');
 
 let spinning = false;
+// Track which players have already been picked this round
+let usedPlayerIndexes = [];
+let lastPlayerIndex = null;
+let lastPromptSkipped = false;
 
 function getPlayers() {
   try {
@@ -236,15 +240,33 @@ function setUsedPromptIndexes(arr, key = 'whirlpopTruthOrDareUsed') {
   localStorage.setItem(key, JSON.stringify(arr));
 }
 
+function pickRandomPlayer(players) {
+  // If all players have been picked, reset
+  if (usedPlayerIndexes.length >= players.length) {
+    usedPlayerIndexes = [];
+  }
+  // Build available indexes
+  let available = [];
+  for (let i = 0; i < players.length; i++) {
+    if (!usedPlayerIndexes.includes(i)) available.push(i);
+  }
+  // If last prompt was skipped, allow the same player again
+  if (lastPromptSkipped && lastPlayerIndex !== null && available.length > 0) {
+    available.push(lastPlayerIndex);
+  }
+  // Pick random
+  let idx = available[Math.floor(Math.random() * available.length)];
+  return idx;
+}
+
 function showPopup() {
   const overlay = document.getElementById('popupOverlay');
   const playerBox = document.getElementById('popupPlayer');
   const topicBox = document.getElementById('popupTopic');
   const players = getPlayers();
   const theme = getTheme();
-  let player = players.length
-    ? players[Math.floor(Math.random() * players.length)]
-    : '-';
+  let playerIdx = players.length ? pickRandomPlayer(players) : null;
+  let player = playerIdx !== null ? players[playerIdx] : '-';
   let topic = 'Random Topic (replace with real topics)';
   if (theme.toLowerCase() === 'truth or dare') {
     let used = getUsedPromptIndexes('whirlpopTruthOrDareUsed');
@@ -316,10 +338,28 @@ function showPopup() {
   playerBox.textContent = `Player: ${player}`;
   topicBox.textContent = `Topic: ${topic}`;
   overlay.style.display = 'flex';
+  // Save for skip/done logic
+  lastPlayerIndex = playerIdx;
+  lastPromptSkipped = false;
 }
 
 function hidePopup() {
   document.getElementById('popupOverlay').style.display = 'none';
+}
+
+function markPlayerDone() {
+  if (
+    lastPlayerIndex !== null &&
+    !usedPlayerIndexes.includes(lastPlayerIndex)
+  ) {
+    usedPlayerIndexes.push(lastPlayerIndex);
+  }
+  lastPromptSkipped = false;
+}
+
+function markPlayerSkipped() {
+  // Don't mark as done, allow repeat
+  lastPromptSkipped = true;
 }
 
 function spinWheel() {
@@ -357,10 +397,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const doneBtn = document.getElementById('doneBtn');
   if (skipBtn)
     skipBtn.onclick = () => {
+      markPlayerSkipped();
       hidePopup();
     };
   if (doneBtn)
     doneBtn.onclick = () => {
+      markPlayerDone();
       hidePopup();
     };
 });
