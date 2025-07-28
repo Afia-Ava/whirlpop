@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap');
+body,
+html,
+.cozy-bg {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background: linear-gradient(135deg, #fbeee6 0%, #e0c3fc 100%);
+  font-family: 'Quicksand', 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-container {
+  max-width: none;
+  width: calc(100vw - 32px);
+  min-height: calc(100vh - 32px);
+  margin: 16px;
+  padding: 1.5rem 1rem 1rem 1rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 32px 0 #e0c3fc55;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.spinner-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.spinner-wheel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.wheel-circle {
+  background: linear-gradient(135deg, #e0c3fc 0%, #fbeee6 100%);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px 0 #e0c3fc55;
+  margin-bottom: 0;
+  margin-right: 1rem;
+}
+
+.wheel-circle span {
+  font-size: 2.5rem !important;
+}
+
+.spin-btn {
+  font-family: 'Fredoka', 'Quicksand', 'Segoe UI', sans-serif;
+  font-size: 2rem;
+  padding: 1rem 3rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  background: #e0c3fc;
+  color: #3a6eea;
+  border: none;
+  box-shadow: 0 2px 8px 0 #e0c3fc33;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.spin-btn:hover {
+  background: #fbeee6;
+  color: #3a6eea;
+}
+
+.whirlpop-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #3a6eea;
+  letter-spacing: 0.04em;
+  font-family: 'Fredoka', 'Quicksand', 'Segoe UI', sans-serif;
+  text-shadow: 0 2px 8px #e0c3fc33;
+}
+
+.spin-desc-text {
+  font-size: 2.7rem;
+  color: #3a6eea;
+  font-family: 'Fredoka', 'Quicksand', 'Segoe UI', sans-serif;
+  text-align: center;
+  margin-bottom: 1.3rem;
+  margin-top: 0.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}

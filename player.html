@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whirlpop Player Setup</title>
+    <link rel="stylesheet" href="player.css" />
+  </head>
+  <body>
+    <div class="player-bg">
+      <button class="back-btn" onclick="window.location.href='index.html'">
+        &#8592; Back
+      </button>
+      <div class="player-container">
+        <h1 class="player-title">Add Players</h1>
+        <form id="playerForm">
+          <input
+            type="text"
+            id="playerName"
+            placeholder="Enter player name"
+            autocomplete="off"
+          />
+          <button type="submit" class="add-btn">Add</button>
+        </form>
+        <ul id="playerList" class="player-list"></ul>
+        <button id="startGameBtn" class="start-btn">Next</button>
+      </div>
+    </div>
+    <script src="player.js"></script>
+  </body>
+</html>
